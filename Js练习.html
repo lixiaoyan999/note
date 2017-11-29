@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Js笔记</title>
+    </head>
+    <style>
+    	body{
+    		padding: 0 50px;
+    	}
+    	h5,h6{
+    		padding: 0;
+    		margin: 10px;
+    	}
+    	p{
+    		font-size: 12px;
+    	}
+    </style>
+    <body>
+    	<h1>Js作用</h1>
+    	<p>
+    		实现动效 <br>
+			数据验证 <br>
+			操作html/css <br>
+			制作游戏() <br>
+			单页面应用(谷歌在线的word、excel等编辑器；各大平台的云) <br>
+			服务器端的应用(node.js) <br>
+			cookie <br>
+    	</p>
+    	<h1>Js是什么</h1>
+    	<p>JS是一个脚本语言(可以直接在浏览器中解析执行，无需编译)。<br>
+    	   JS是基于对象和事件驱动的解释型的松散型语言。</p>
+    	<h1>Js语言</h1>
+    	<h2>html如何引入JS？</h2>
+    	<p>
+    		引入外部文件 <br>
+    		嵌入式 <br>
+    		在超链接或重定向中引入 <br>
+    		事件之后调用 <br>
+    	</p>
+    	<h2>如何输出？</h2>
+    	<p>
+    		alert() <br>
+    		console.log <br>
+    		document.write() <br>
+    		fonfirm <br>
+    		prompt <br>
+    	</p>
+    	<h2>变量</h2>
+    	<h3>一、命名规范：</h3>
+    	<p>
+    		1、变量名必须以字母、下划线 _ 或 $ 开头，后面部分可以跟任意的字母、数字、_ 、或 $ <br>
+    		2、不能使用关键字(JS自定义的 var)或者是保留字(为以后扩展用)命名 <br>
+    		3、JavaScript有自己的命名习惯 <br>
+    		&nbsp;&nbsp;驼峰命名法：getElementById <br>
+    		&nbsp;&nbsp;首字母大写发：Object <br>
+    		4、变量名区分大小写 <br>
+    		5、命名一定要有意义，提高代码可读性 <br>
+    	</p>
+    	<h3>二、什么是变量？</h3>
+    	<p>
+    		变量就是保存数据的容器。 <br>
+    		内存就是一个盒子，每次声明一个变量，它都会在内存中开辟一段空间进行保存。保存起来后，当我们需要用的时候会从内存中获取相应的数据。如果浏览器关闭，内存会释放空间，方便下次使用。
+    	</p>
+    	<h3>三、变量声明(通过关键字)</h3>
+    	<p>
+    		var <br>
+    		let <br>
+    		const <br>
+    	</p>
+    	<h3>四、变量的赋值情况</h3>
+    	<p>
+    		1. 声明变量的同时进行赋值 <br>
+    		2. 声明之后赋值 <br>
+    		3. 声明多个变量并同时进行赋值 <br>
+    		&nbsp;&nbsp;注意：多个变量之间用逗号隔开 <br>
+    		4.  声明多个变量，之后赋值 <br>
+    	</p>
+    	<h3>五、注意：</h3>
+    	<p>
+    		1. 变量声明之前进行调用，会返回undefined(未赋值)。【变量提升现象】 <br>
+			2. 不通过关键字声明的变量，但是赋值了，它会返回对应的值(全局变量) <br>
+			3. 不通过关键字声明的变量，但是没有赋值，会报错。 <br>
+			4. 对变量重新赋值，会发生覆盖。 <br>
+			1. 对变量重新声明赋值，会发生覆盖。 <br>
+    	</p>
+    	<h3>六、数据类型</h3>
+    	<p>
+    		<h5>初始数据类型</h5>
+    			<h6>undefined</h6>
+				可能的情况：声明变量并未赋值，返回undefined; <br>
+				声明变量之前进行访问，返回undefined。 <br>
+				返回的值：undefined <br>
+				<h6>null (空，占位符)</h6>
+				可能的值：null <br>
+				返回的值：null <br>
+				返回值的类型：object <br>
+				<h6>number(数值类型)</h6>
+ 				可能的值：整型、浮点型、二进制、十进制、八进制、十六进制、科学计数法(最大值，最小值) <br>
+ 				返回的值：对应的数值 <br>
+ 				返回值的类型：number <br>
+ 				<h6>string (字符串类型)</h6>
+ 				可能的值：通过引号引起来的 <br>
+ 				返回的值：对应的字符串 <br>
+ 				返回值的类型：string <br>
+ 				<h6>boolean (布尔类型)</h6>
+ 				可能的值：true  false <br>
+ 				返回的值：true  false <br>
+ 				返回值的类型：boolean <br>
+ 				<h6>symbol</h6>
+    		<h5>引用数据类型</h5>
+    	</p>
+    	<h2>运算符</h2>
+    		<h5>1.  算术运算符</h5>
+    		<h5>2. 关系运算符</h5>
+    		<h5>3. 赋值运算符</h5>
+    		<h5>4. 逻辑运算符</h5>
+    		<h5>5.其它运算符</h5>
+    		<h5>6. 特殊运算符 ()</h5>
+    		<h5>7. 模板字符串 (es6)</h5>
+    			<p>作用：方便引入变量 <br>
+					模板字符串要用反引号引起来，如果需要引入变量通过${变量名} <br>
+					eg：console.log(`这是num1 -- ${num1}和num2 -- ${num2}的和${sum}`);</p>
+    		<h5>8. 流程控制</h5>
+    			<h6>1、流程</h6>
+    				<p>
+    					程序代码的执行顺序。 <br>
+						注意：JS的执行是根据浏览器的解析从上到下，一条语句一条语句的执行，有且只有这一种方式。
+    				</p>
+    			<h6>2、流程控制</h6>
+    				<p>通过规定的语句让程序代码有条件的按照一定的方式执行。</p>
+    			<h6>3、表达式</h6>
+    				<p>表达式一般由运算符和操作数构成，且有一定的值(已经有值或者即将赋值)</p>
+    			<h6>4、语句</h6>
+    			<h6>5、三大流程控制</h6>
+    			<p>1、顺序结构</p>
+    			<p>2、选择结构</p>
+    			<p>3、循环结构</p>
+    	<h2>数组</h2>
+            <h5>一、数组</h5>
+                <p>变量：存储数据的容器 <br>
+                数组：存储一组或者一系列相关数据的集合</p>
+            <h5>二、优势</h5>
+                <p>方便数据管理 <br>
+                可以保存大批量的数据</p>
+            <h5>三、创建方式</h5>
+                <p>1、json格式  var arr = [] <br>
+                2、通过实例化对象的方式  var arr = new Array();</p>
+            <h5>四、赋值情况</h5>
+                <p>1、声明的同时进行赋值 <br>
+                  var arr = [34,65,485,'ssd','dgh']
+                2、声明之后进行赋值
+                  var arr1 = []; <br>
+                  arr1[0] = 34; <br>
+                  arr2[1] = 25;</p>
+            <h5>五、对数组的访问</h5>
+                <p>以下标的形式访问 <br>
+                 length属性：统计数组的长度（元素的个数） <br>
+                 访问数组的第一个元素：arr[0] <br>
+                 访问数组的最后一个元素：arr[arr.length-1]</p>
+            <h5>六、对数组的遍历</h5>
+                <p> for <br>
+                  for(var i = 1;i < arr.length;i++){ <br>
+                  arr[i]*=2; <br>
+                } <br>
+                console.log(arr); <br>
+                 for in（用于数组和对象的遍历） <br>
+                  for(变量 in 对象){} <br>
+                  for in最终遍历出来的是对象的属性 <br>
+                  for(var i in arr.length){ <br>
+                  console.log <br>
+                }
+                </p>
+            <h6>注意：</h6>
+                <p>
+                    数组默认的值是空（变量默认值是undefined） <br>
+                    数组元素的长度可变 <br>
+                    数组可以保存任何类型的数据 <br>
+                    数组下标是从0开始 <br>
+                    下标超过数组定义的范围返回undefined <br>
+                </p>
+        <h2>二维数组</h2>
+            <p>
+                1、每个数组元素的值对应的又是一个数组 <br>
+                2、声明方式和一维数组一样 <br>
+                3、二维数组的访问方式：通过双下标 <br>
+                4、二位数组的遍历：双层for循环 <br>
+                5、浅拷贝和深拷贝 <br>
+                  浅拷贝：传地址，会改变。指向的是赋值对象的引用 <br>
+                    var arr = [0,2,3]; <br>
+                    var newarr = arr; <br>
+                    newarr[1] = 30; <br>
+                    console.log(arr); <br>
+                    console.log(newarr); <br>
+                  深拷贝：传值，不会改变。指向的是赋值对象所有引用对象的全部赋值 <br>
+                    var arr = [1,2,3,5,8]; <br>
+                    var newarr = []; <br>
+                    for(var i = 0;i < arr.length;i++){ <br>
+                      newarr[newarr.length] = arr[i]; <br>
+                    } <br>
+                    console.log(newarr); <br>
+                    newarr[2] = 30; <br>
+                    console.log(newarr); <br>
+                    console.log(arr); <br>
+            </p>
+    	<h2>函数</h2>
+            <p>
+                <h5>一、函数</h5>
+                  函数就是将能够实现某一特定功能的代码块封装起来，方便重复调用
+                <h5>二、特点</h5>
+                  程度会更加简洁，维护起来更容易
+                <h5>三、函数声明（3种）</h5>
+                  1、通过关键字 function 函数名([参数1]，[参数2],[参数3]...){函数体} <br>
+                  2、通过字面量的方式 var 变量名 = function([参数1]，[参数2],[参数3]...){函数体} <br>
+                  3、通过实例化对象的方式 var 变量名 = new Function(); <br>
+                <h5>四、函数调用</h5>
+                  1、函数名/变量名+() <br>
+                  2、函数自调用 <br>
+                    注意：函数自调用的时候，无论之前是什么，都必须加分号 <br>
+                  3、在事件之后调用 <br>
+                    注意：只许需要写函数名，不需要加() <br>
+                <h5>五、注意</h5>
+                 函数名重复会发生覆盖 <br>
+                 通过关键字声明的函数，可以在声明之前访问；通过字面量声明的函数，只有在解析到它的时候才会进行赋值 <br>
+                 代码是从上到下一条语句一条语句解析执行的，多个script块之间由于解析环境一样，它们会相互影响，调用不同块之间的函数需要注意一定要先声明再调用 <br>
+                  <h5>六、参数</h5>
+                  声明函数时()传的是形参，调用函数时()小括号里传实参 <br>
+                  alert只能传一个参数，console.log可传多个 <br>
+                  动态改变函数体内对应的变量类型与值，使同一函数体呈现不同的效果 <br>
+                  <h5>七、有关参数的个数</h5>
+                 实参和形参一一对应 <br>
+                 实参个数小于形参，多余的形参返回undefined <br>
+                 实参个数大于形参，只返回形参相对应的值 <br>
+                <h5>八、多余实参的接收</h5>
+                  1、reset参数 <br>
+                  reset接收多余参数的时候，作为一个数组进行处理 <br>
+                  注意：...reset是运算符 <br>
+                      function al(num1,num2,...reset){ <br>
+                        console.log(num1,num2,reset); <br>
+                      }; <br>
+                  2、arguments对象 <br>
+                  当我们创建一个函数时，它默认会创建一个arguments对象 <br>
+                  在arguments对象身上保存了所有参数的信息 <br>
+                  arguments有length属性 <br>
+                  arguments.callee指向函数自身 <br>
+                <h5>九、默认参数</h5>
+                  1、直接在形参后进行设置 <br>
+                  注意：默认参数位置一定放在最后（参数一一对应会覆盖） <br>
+                  function al(num = 29){ <br>
+                  colsole.log(num); <br>
+                  } <br>
+                  2、通过三元运算符（条件表达式?为真的值:为假的值） <br>
+                  function al(num){ <br>
+                  num=num===undefined?20:num; <br>
+                  console.num(num); <br>
+                  } <br>
+                  3、逻辑或|| <br>
+                  function al(num){ <br>
+                  num = num||30; <br>
+                  console.num(num); <br>
+                  } <br>
+                <h5>十、函数返回值</h5>
+                  return <br>
+                   在函数调用的地方，返回一个值 <br>
+                      注意： <br>
+                        如果return后面没有值会返回undefined; <br>
+                        return只能返回一个值，如果在return后边跟多个值会发生覆盖，最终返回最后一个值; <br>
+                        函数中可以有多条return语句，但是只执行一条; <br>
+                
+                   终止函数执行，return之后的语句都不被执行 <br>
+                      function al(num,num1){ <br>
+                      var sum = num + num1; <br>
+                      return sum; <br>
+                      console.log(sum); <br>
+                      } <br>
+                      console.log((20,3)); <br>
+                
+                <h5>十一、作用域</h5>
+                    环境： <br>
+                    宿主环境：浏览器 <br>
+                    执行环境：决定了变量和函数的访问权限 <br>
+                    作用域：有关变量和函数的访问范围 <br>
+                    作用域中分全局作用域和局部作用域 <br>
+                    全局作用域：在任何地方都可以访问的变量 <br>
+                    在函数外部声明的变量 <br>
+                    没有通过关键字声明的变量并且同时赋值 <br>
+                    window对象，window.name,window.top有全局作用域 <br>
+                      局部作用域：在规定的代码块内能够访问的变量 <br>
+                      块级作用域(es6)(用{}括起来的)：if switch for <br>
+                      作用域链：作用域链的存在造成了闭包函数的产生 <br>
+                <h5>十二、闭包函数</h5>：函数中存在作用域链，函数中的局部变量全部保存在作用域链中，这样的特性称为闭包。
+                    闭包函数作用 <br>
+                      保存局部变量；
+                      在函数外部访问局部变量
+                <h5>十三、回调函数</h5>
+                    把一个函数的指针(直接写函数名)作为参数传递给另外一个函数，这个函数就叫回调函数 <br>
+                      传参方式： <br>
+                        1、通过函数的指针
+                        2、把整个函数传进去
+                <h5>十四、递归</h5>
+                        在函数内部直接调用自己或者间接调用自己 <br>
+                <h5>十五、模拟函数重载</h5>
+                    同一个函数因为传入的参数的类型或个数不同，可以对应多个函数的实现，而且每种实现对应一个函数体 <br>
+                    重载函数常常用来实现功能类似而所处理的数据类型不同的问题 <br>
+                <h5>十六、预解析顺序</h5>
+                    1、按照<script></script>块来解析，有多个<script></script>对时，按块解析，先解析第一个<script></script>中的代码 <br>
+                    2、按环境来解析 <br>
+                    3、遇到关键字var和function时（即以关键字创建的函数），提前解析到内存中（相对应的环境里）。即可在声明之前用 <br>
+                    4、若还有<script></script> ，再按照上面的顺序解析 <br>
+            </p>
+    	<h2>对象</h2>
+         <p>
+            面向过程：按照流程一步一步操作 <br>
+            面向对象：不管中间环节如何实现，只要结果 <br>
+            对象：一切皆对象 <br>
+               对象指的是人们所能接触到的所有的事物，有抽象也有具体 <br>
+               对象是属性和行为的集合 <br>
+                属性：描述对象特征的数据 <br>
+                行为： <br>
+               类：具有相同属性和行为的对象的抽象 <br>
+               类是对象的抽象，对象是类的实例化 <br>
+            <h5>一、声明一个对象</h5>
+              1、实例化 <br>
+                var Person = new Object(); <br>
+              2、字面量 <br>
+                var Person = {}; <br>
+              3、构造函数 <br>
+                function Person(){} <br>
+                var lisi = new Person(); <br>
+            <h5>二、添加属性，方法</h5> <br>
+              属性：对象.属性名 = 属性值 <br>
+                对象['属性名'] = 属性值 <br>
+              方法：对象.方法名 = function(){} <br>
+                对象['方法名'] = function(){} <br>
+            <h5>三、访问属性和方法</h5>
+              属性：对象.属性名 <br>
+                对象['属性名'] <br>
+              方法：方法.属性名 <br>
+                对象['属性名'] <br>
+            <h5>四、删除属性、方法</h5>
+              delete <br>
+            <h5>五、清空对象</h5>
+              null <br>
+            <h5>六、for in</h5>
+              对象：i ->属性名/方法名 <br>
+                对象名[i] -> 属性值/方法 <br>
+              数组： i-> 下标 <br>
+                数组名[i]-> 数组元素 <br>
+         </p>
+    </body>
+</html>
+	<script>
+		/* 有关日期的输入(if)*/
+		// var date = prompt('请输入日期');
+		// console.log(typeof date);
+		// if(date == '6' || date == '7'){
+		// 	alert("今天不用上课");
+		// }else if(date > '0' && date <= "5"){
+		// 	alert("正常上课");
+		// }else{
+		// 	alert("输入错误");
+		// }
+
+		/* 星期的输入switch */
+		// var date = prompt("请输入星期");
+		// console.log(typeof date);
+		// switch(date){
+		// 	case '1':alert('周一');
+		// 	break;
+		// 	case '2':alert('周二');
+		// 	break;
+		// 	case '3':alert('周三');
+		// 	break;
+		// 	case '4':alert('周四');
+		// 	break;
+		// 	case '5':alert('周五');
+		// 	break;
+		// 	case '6':alert('周六');
+		// 	break;
+		// 	case '7':alert('周日');
+		// 	break;
+		// 	default:alert("有误");
+		// }
+		
+		/* 四则运算switch */
+		// var number1 = prompt('请输入数值1');
+		// var ope = prompt('请输入运算符');
+		// var number2 = prompt('请输入数值2');
+		// switch(ope){
+		// 	case'+':console.log(`number1+number2=${number1+number2}`);break;
+		// 	case'-':console.log(`number1-number2=${number1-number2}`);break;
+		// 	case'*':console.log(`number1*number2=${number1*number2}`);break;
+		// 	case'/':console.log(`number1/number2=${number1/number2}`);break;
+		// }
+
+		/* 输出100以内的奇偶数for */
+		// for(i = 0;i < 100;i++){
+		// 	if(i % 2 == 0){
+		// 		console.log(`100以内的偶数是${i}`);
+		// 	}else{
+		// 		console.log(`100以内的奇数是${i}`);
+		// 	}
+		// }
+
+
+		/* 水仙花数[3位数]for */
+		// for(i = 1; i < 10;i++){
+		// 	for(j = 0;j < 10;j++){
+		// 		for(k = 0;k < 100;k++){
+		// 			if(i**3+j**3+k**3 == (i*100+j*10+k)){
+		// 				console.log(`100以内的三位水仙花数是${i*100+j*10+k}`);
+		// 			}
+		// 		}
+		// 	}
+		// }
+
+
+		/* 金字塔（for */
+		// for(var i = 0;i < 6;i++){
+		// 	for(var j = 0; j < 5-i;j++){
+		// 		document.write("&nbsp;&nbsp;");
+		// 	}
+		// 	for(var k = 0;k < i+1;k++){
+		// 		document.write("*&nbsp;&nbsp; ");
+		// 	}
+		// 	document.write('<br>');
+		// }
+
+		/* 9*9乘法表（for/while） */
+		// for(var i = 1;i <= 9;i++){
+  //        	for(var b=1;b<=i;b++){
+  //        		document.write(`${i}*${b}=${i*b}`);
+  //        		if((i == 3||i==4)&&b==2){
+  //        			document.write("&nbsp;&nbsp;&nbsp;&nbsp;");
+  //        		}
+  //        		else{
+  //        			document.write("&nbsp;&nbsp;");
+  //        		}
+  //        	}
+  //       document.write("<br>");
+
+
+        // var a = 1;
+        // while(a < 10){
+        //         var b =1;
+        //         while(b <= a){
+        //                 document.write(`${a}*${b}=${a*b}`);
+        //                 if((a==3 || a ==4)&&b==2){
+        //                         document.write("&nbsp;&nbsp;&nbsp;&nbsp;"); 
+        //                 }
+        //                 else{
+        //                 document.write("&nbsp;&nbsp;");
+        //                 }
+        //                 b++;
+        //         }
+        //         document.write('<br/>');
+        //         a++;
+        // }
+
+		/* 10*10表格 */
+		// var tab = `<table width="600px" height="600px" border="1px" cellspacing="0">`;
+  //               for(a=0;a<10;a++){
+  //                       if(a % 2 == 0){
+  //                               tab += `<tr bgcolor="pink">`
+  //                       }
+  //                       else{
+  //                            tab += `<tr bgcolor="orange">`   
+  //                       }                       
+  //                       for(b =0;b<10;b++){
+  //                               tab += `<th></th>`
+  //                       }
+  //               tab += `</tr>`
+  //               }
+  //        tab += `</table>`;
+  //        document.write(tab);
+
+
+		/* 操场上有一百多个人，三排余一人，四排余二人，五排余三人，问一共有多少人？ */
+		// for(i=100;i<200;i++){
+  //        	if(i%3==1 && i%4==2 && i%5==3){
+  //        		console.log(`操场一共有${i}`);
+  //        	}
+  //        }
+
+
+
+		/* 买书：教材 10元/本，参考书5元/本，练习本0.5元/本，100元买了100本书，各种书各有几本书？ */
+		// for(var a = 0;a <=100;a++){
+  //        	for(var b = 0; b <= 100-a;b++){
+  //        		for(var c=0;c<=100-a-b;c++){
+  //        			if((a+b+c==100)&&(a*10+b*5+c*0.5==100)){
+  //        				console.log(`教材有${a}本,参考书有${b}本，练习本有${c}本`);
+  //        			}
+  //        		}
+  //        	}
+  //        }
+
+		/* 鸡兔同笼，头有34，脚有96，有多少只鸡与兔？ */
+		// for(a=0;a<=34;a++){
+  //        	for(b=0;b<=34-a;b++){
+  //        		if((a+b==34) && (a*2+b*4==96)){
+  //        			console.log(`鸡有${a},兔子有${b}`);
+  //        		}
+  //        	}
+  //        }
+
+
+         //生兔子案例
+		// function tu(num){
+		// 	if (num == 0 || num == 1){
+		// 		return 1;
+		// 	}
+		// 	else{
+		// 		return arguments.callee(num - 1) + arguments.callee( num -2);
+		// 	}
+		// }
+		// console.log(tu(23));
+
+
+		/*将数组的元素扩大二倍*/
+		// var arr = [3,4,5];
+		// for(var i = 0; i < arr.length;i++){
+		// 	arr[i] *= 2;
+		// }
+		// console.log(arr);
+
+
+		/*数组去空*/
+		// var arr1 =[34,'aa',54,,'123'];
+		// var newarr = [];
+		// for(var i = 0;i<arr1.length;i++){
+		// 	if(arr1[i] !== undefined){
+		// 		newarr[newarr.length] = arr1[i];
+		// 	}
+		// }
+		// console.log(newarr);
+
+
+
+		/*数组求最大、最小、平均值*/  
+		// var arr2 =[34,54,65,76,87,98];
+		// var maxarr = arr2[0];
+		// var minarr = arr2[0];
+		// var avgarr;
+		// var sumarr = 0;
+		// for(var i = 0;i<arr2.length;i++){
+		// 	sumarr += arr2[i]; 
+		// 	avgarr = sumarr/arr2.length;
+		// 	if(arr2[i] >= maxarr){				
+		// 		maxarr = arr2[i];
+		// 	}
+		// 	if(arr2[i] <= minarr){				
+		// 		minarr = arr2[i];
+		// 	}
+		// }
+		// console.log(maxarr);
+		// console.log(minarr);
+		// console.log(avgarr);
+
+
+		/*数组排序，从大到小，从小到大*/ /*使用冒泡排序法*/
+		// var arr2 =[34,65,88,54,87,76];
+		// var newarr;
+		// for(var i = 0;i < arr2.length;i++){
+		// 	for(var j = i+1;j < arr2.length;j++){
+		// 		if(arr2[i] > arr2[j]){
+		// 			newarr = arr2[i];
+		// 			arr2[i] =arr2[j];
+		// 			arr2[j] = newarr;
+		// 		}
+		// 	}
+		// }
+		// console.log(arr2);
+
+		// var arr2 =[34,65,88,54,87,76];
+		// var newarr;
+		// for(var i = 0;i < arr2.length;i++){
+		// 	for(var j = i+1;j < arr2.length;j++)
+		// 		if(arr2[i] < arr2[j]){
+		// 			newarr = arr2[i];
+		// 			arr2[i] =arr2[j];
+		// 			arr2[j] = newarr;
+		// 		}
+		// }
+		// console.log(arr2);
+		
+
+
+		/* 找出数组中是否包含某个元素，包含返回true，不包含返回false    contain(arr,5); */
+
+		// var arr =[3,4,5,6,7];
+        // var num = 5;
+        // function contain(arr,num){      
+        //     for(i = 0;i < arr.length;i++){
+        //     	arr[i] = arr[arr.length];
+        //         if(arr[i] == num){
+        //             return true;
+        //         }
+        //         else {
+        //         	return false;
+        //         }               
+        //     }        
+        // }
+        // console.log(contain(arr,num));
+
+
+        /* 数组查找，查找数组中是否包含a元素，包含则返回此元素的下标，不包含则返回-1 */
+		// var arr = [4684,6626,462,16,2,61,'n'];
+		// var num = 4684;
+		// function sea(arr,num){
+		// 	for(var i = 0;i <= arr.length;i++){
+		// 		if(arr[i] == num){
+		// 			return arr[length];
+		// 		}
+		// 		return -1;
+		// 	}
+		// }
+		// document.write(sea(arr,num));
+		// document.write('<br>');
+
+
+
+        /* 将数组转换为字符串，默认用-链接 */
+     //    var arr2 = [4684,6626,462,16,2,61,'n'];
+     //    function link(arr2){
+     //   		var str = '';
+     //   		for(var i=0; i < arr2.length; i++){
+     //   		    if(i == arr2.length-1){
+     //   		        str = str + arr2[i];
+     //   		    }else{
+     //   		        str = str + arr2[i] + '-';
+     //   		    }
+     //   		}return str;
+    	// }
+    	// document.write(link(arr2));
+    	// document.write('<br>');
+
+        /* 实现数组元素去重 */
+        var arr1 = [1,2,3,4,3,6,2];
+        function Qc(arr1){
+        var newarr = [];
+        for(i = 0; i < arr1.length;i++){
+        var flag = true;
+                for(j = i+1;j < arr1.length;j++){
+                    if(arr1[i] == arr1[j]){
+                        flag = false;
+                    }
+                }
+                if(flag == true){
+                    newarr[newarr.length] = arr1[i];
+                }
+            }
+                return newarr;
+        }
+        console.log(Qc(arr1));
+	</script> 
